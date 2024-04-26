@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'Joane';
+    src: local('Joane Light'), local('Joane-Light'),
+        url('Joane-Light.woff2') format('woff2'),
+        url('Joane-Light.woff') format('woff'),
+        url('Joane-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+  }

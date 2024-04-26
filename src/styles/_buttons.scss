@@ -1,0 +1,83 @@
+/******* buttons **********/
+.btn {
+  border: 1px solid $secondary;
+  padding: $btn-padding;
+  border-radius: $btn-border-radius;
+  display: inline-block;
+  &:hover,
+  &:focus {
+    border-color: $secondary !important;
+  }
+}
+
+.btn-primary {
+  @extend .btn;
+  background-color: $secondary;
+  color: white;
+  &:hover,
+  &:focus {
+    background: $secondary !important;
+  }
+}
+
+.btn-secondary {
+  @extend .btn;
+  background: transparent;
+  color: white;
+  &:hover,
+  &:focus {
+    background: transparent !important;
+  }
+}
+
+.btn--hover {
+  @extend .btn;
+  color: $secondary;
+  transform: translateZ(0);
+  transition-duration: 0.1s;
+  position: relative;
+  &:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: $secondary;
+    transform: scale(0);
+    transition-property: transform;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-out;
+  }
+  &:hover,
+  &:active,
+  &:focus {
+    color: white !important;
+    background: none !important;
+    border: 1px solid $secondary !important;
+    &:before {
+      transform: scale(1);
+    }
+  }
+}
+
+.btn-lg {
+  padding: $btn-padding;
+  font-size: initial;
+  min-width: 10rem;
+  text-align: center;
+}
+
+.link--hover {
+  transition: 0.3s;
+  svg {
+    transition: 0.3s;
+  }
+  &:hover {
+    color: $secondary !important;
+    svg {
+      fill: $secondary !important;
+    }
+  }
+}

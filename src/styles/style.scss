@@ -1,0 +1,552 @@
+@use "sass:math";
+
+@import "variables";
+@import "buttons";
+@import "colors";
+@import "background";
+@import "borders";
+@import "shadow";
+@import "type";
+
+.section {
+  &__wrapper {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+}
+
+header {
+  background-color: #fcf8f8;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  .navbar.navbar-light {
+    padding: 0;
+    .nav-link {
+      transition: 0.5s;
+      position: relative;
+      text-transform: uppercase;
+      font-weight: $font-weight-semi-bold;
+      color: $black-90;
+      font-size: 12px;
+      margin: 0 0.5rem;
+      &:hover,
+      &.active {
+        color: $secondary;
+      }
+    }
+    .navbar-toggler {
+      border: none;
+    }
+    .navbar-brand {
+      img {
+        transition: 0.5s;
+        width: 5.5rem;
+      }
+    }
+  }
+  &.scrolled {
+    // background-color: white;
+    box-shadow: $shadow-sm $gray-300;
+    animation-name: fromTop;
+    animation-duration: 0.5s;
+    .navbar.navbar-light {
+      .navbar-brand img {
+        width: 3.5rem;
+      }
+    }
+  }
+  @keyframes fromTop {
+    from {
+      transform: translateY(-80px);
+    }
+  }
+}
+
+main {
+  margin-top: 4.5rem;
+}
+
+/*********************** Home Page ***************************/
+.home {
+  background-color: #fcf8f8;
+  &__hero-image {
+    width: 100%;
+    img {
+      // max-height: 80vh;
+      object-fit: cover;
+    }
+  }
+  &__hero {
+    padding-top: 5rem;
+    background-color: #fcf8f8;
+  }
+  &__story {
+    height: 65vh;
+    background-size: cover;
+    background-position: center;
+    max-width: 900px;
+    margin: 0 auto;
+    &__content {
+      background-color: $white-70;
+      padding: 1.5rem;
+      // margin: 0 0.5rem;
+      max-width: 600px;
+    }
+  }
+  &__pyramids {
+    padding-top: 3.5rem;
+    &__item {
+      margin-bottom: 3.5rem;
+      &__img {
+        width: 50%;
+        height: 9rem;
+        object-fit: cover;
+      }
+      a {
+        color: $primary;
+        text-decoration: underline;
+        text-transform: uppercase;
+        display: block;
+        letter-spacing: 2px;
+        font-weight: 500;
+      }
+    }
+  }
+  &__offerings {
+    &__item {
+      margin-bottom: 2rem;
+      p {
+        line-height: 1rem;
+        font-size: 0.8rem;
+      }
+      &__img {
+        width: 70px;
+        margin-bottom: 1rem;
+        font-size: $black-60;
+      }
+    }
+  }
+  &__apply {
+    position: relative;
+    // height: 100vh;
+    &::before {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 0;
+      border-top: calc(33vw + 180px) solid transparent;
+      border-bottom: calc(33vw + 180px) solid transparent;
+      border-left: calc(65vw + 100px) solid $primary;
+      z-index: -1;
+      top: -12vw;
+      left: 0;
+    }
+    &__wrapper {
+      width: 100%;
+      // height: 80%;
+      padding-top: 8.5rem;
+      z-index: 1;
+      &::before {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 0;
+        border-left: calc(22vw + 100px) solid transparent;
+        border-right: calc(22vw + 100px) solid transparent;
+        border-top: calc(28vh + 35vw) solid $secondary;
+        top: 5rem;
+      }
+      h2 {
+        position: relative;
+        // top: 3rem;
+        pre {
+          font-family: "Joane";
+        }
+      }
+      a {
+        text-transform: uppercase;
+        color: $primary;
+        font-weight: bold;
+        text-decoration: underline;
+        letter-spacing: 3px;
+        position: relative;
+        // top: 5rem;
+      }
+    }
+  }
+}
+
+/*********************** Story Page ***************************/
+.story {
+  &__hero {
+    height: 90vh;
+    background-size: cover;
+    &__content {
+      background-color: $white-70;
+      padding: 1.5rem;
+      margin: 0 0.5rem;
+    }
+  }
+
+  &__cards {
+    .card-img {
+      img {
+        height: 100%;
+        object-fit: cover;
+        border-radius: 7px;
+      }
+    }
+  }
+
+  &__criteria {
+    font-weight: 500;
+    &__item {
+      &__title {
+        color: $primary;
+        font-weight: 400;
+      }
+      ul {
+        list-style: none;
+      }
+      p {
+        margin-bottom: 3px;
+      }
+    }
+  }
+}
+
+/*********************** Pyramids Page ***************************/
+
+.pyramids {
+  &__members {
+    &__item {
+      &__image {
+        position: relative;
+        cursor: pointer;
+
+        .overlay {
+          transition: 0.5s all;
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          top: -100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          a {
+            margin: 0 15px;
+            transition: 0.5s all;
+            img {
+              width: 23px;
+            }
+            &:hover {
+              transform: scale(1.1);
+            }
+          }
+        }
+        &:hover {
+          .overlay {
+            background-color: $black-60;
+            z-index: 1;
+            top: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+.pyramids,
+.networks {
+  padding-top: 5rem;
+  &__members {
+    &__item {
+      padding-bottom: 4rem;
+      &__image {
+        width: 220px;
+        height: 250px;
+        // background-color: white;
+        img {
+          height: 100%;
+          width: 100%;
+        }
+      }
+      h5 {
+        color: $primary;
+        font-family: "Proxima Nova";
+      }
+      &__description {
+        p {
+          margin-bottom: 0.5rem;
+        }
+      }
+    }
+  }
+}
+
+/*********************** Networks Page ***************************/
+
+.networks {
+  &__members {
+    &__item {
+      &__description.text-ellipsis {
+        max-height: 150px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+  }
+}
+.team-description {
+  max-width: 600px;
+}
+
+/*********************** Apply Page ***************************/
+.apply {
+  padding-top: 5rem;
+  &__section {
+    margin-bottom: 3rem;
+    h2 {
+      color: $primary;
+      font-weight: 400;
+      margin-bottom: 1.7rem;
+    }
+    h6 {
+      color: $primary;
+      text-transform: uppercase;
+      font-weight: 600;
+      letter-spacing: 2px;
+      font-size: 0.8rem;
+      margin-top: 1.7rem;
+    }
+    label {
+      font-weight: 600;
+      text-transform: uppercase;
+      font-size: 1.2rem;
+      letter-spacing: 2px;
+      // margin-top: 2rem;
+    }
+    input,
+    textarea {
+      margin-bottom: 2.2rem;
+      // margin-top: 1rem;
+    }
+    .form-control {
+      height: auto;
+      line-height: 1;
+    }
+  }
+
+  .add-btn,
+  .remove-btn {
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    line-height: 1;
+    color: white;
+    border-radius: 3px;
+    font-size: 2rem;
+    border: none;
+  }
+
+  .add-btn {
+    font-weight: bold;
+    background-color: $primary;
+  }
+  .remove-btn {
+    background-color: rgb(255, 120, 120);
+    // font-size: 3rem;
+  }
+}
+
+/*********************** Contact Page ***************************/
+.contact {
+  padding-top: 5rem;
+  a {
+    font-family: "Joane";
+    color: $primary;
+    text-decoration: underline;
+    font-size: 1rem;
+    word-spacing: 4px;
+  }
+  &__social-icons {
+    display: flex;
+    margin-top: 2rem;
+    a {
+      text-decoration: none;
+      margin-right: 1.5rem;
+      width: 3rem;
+      height: 3rem;
+      border: 1px solid #aeb2b6;
+      color: #3e4144;
+      border-radius: 50%;
+      font-size: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 5px;
+      img {
+        height: 30px;
+      }
+    }
+  }
+}
+
+/******************** spinner *********************/
+.spinner {
+  display: none;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1001;
+  align-items: center;
+  justify-content: center;
+  &__wrapper {
+    $size: 100px;
+    $border: 35px;
+    $bg: #232828;
+    $time: 2s;
+    position: relative;
+    width: $size;
+    height: $size;
+    background: $bg;
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+
+    div {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: block;
+      border-radius: 50%;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+      animation: zoomer $time ease infinite alternate;
+    }
+
+    > div {
+      background: lighten($bg, 5%);
+      transform: scale(0.8);
+      // animation-delay: #{$time / 1.3333};
+      animation-delay: #{math.div($time, 1.3333)};
+      > div {
+        background: lighten($bg, 10%);
+        transform: scale(0.6);
+        // animation-delay: $time / 2;
+        animation-delay: math.div($time, 2);
+
+        > div {
+          background: lighten($bg, 15%);
+          transform: scale(0.4);
+          // animation-delay: #{$time / 4};
+          animation-delay: #{math.div($time, 4)};
+
+          > div {
+            background: lighten($bg, 20%);
+            transform: scale(0.2);
+            animation-delay: 0s;
+          }
+        }
+      }
+    }
+
+    span {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      color: $secondary;
+      z-index: 2;
+      transform: translate(-50%, -50%) scale(0);
+      font-weight: 700;
+      transform-origin: center;
+      letter-spacing: 1px;
+      // animation: zoomer-2 $time #{$time / 5.714} ease infinite alternate;
+      animation: zoomer-2 $time #{math.div($time, 5.714)} ease infinite alternate;
+    }
+
+    @keyframes zoomer {
+      to {
+        transform: scale(1) rotate(360deg);
+        border-top-left-radius: 40%;
+        border-bottom-right-radius: 40%;
+      }
+    }
+
+    @keyframes zoomer-2 {
+      from {
+        transform: translate(-50%, -50%) scale(0);
+        opacity: 0;
+        letter-spacing: 1px;
+      }
+
+      to {
+        transform: translate(-50%, -50%) scale(1.01);
+        opacity: 1;
+        letter-spacing: 5px;
+      }
+    }
+  }
+}
+
+/************************************* Responsive  ******************************************/
+
+/******* Medium devices (tablets, less than 992px) **********/
+@media only screen and (max-width: 991px) {
+  :root {
+    font-size: 15px;
+  }
+  header {
+    .navbar {
+      .navbar-collapse {
+        .navbar-nav {
+          margin: 2rem 0;
+          text-align: center;
+          .nav-link {
+            padding: 1.5rem 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+/********** Small devices (landscape phones, less than 768px) ***********/
+@media (max-width: 767.98px) {
+  :root {
+    font-size: 14px;
+  }
+
+  .pyramids,
+.networks {
+  &__members {
+    &__item {
+      &__image {
+        width: 180px;
+        height: 200px;
+      }
+    }
+  }
+    }
+}
+
+/*********** Extra small devices (portrait phones, less than 576px) ********/
+@media (max-width: 575.98px) {
+  :root {
+    font-size: 13px;
+  }
+}
+
+// handle page transition plugin
+.tl-edges {
+  overflow-x: visible;
+}
+
+.tl-wrapper {
+  overflow-x: clip;
+}

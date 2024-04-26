@@ -1,0 +1,144 @@
+@import "./fonts/Joane-Light/style.css";
+@import "./fonts/Joane-Regular/style.css";
+@import "./fonts/ProximaNova-Light/style.css";
+@import "./fonts/ProximaNova-Regular/style.css";
+@import "./fonts/ProximaNova-Semibold/style.css";
+
+html {
+  scroll-behavior: smooth;
+}
+body {
+  font-family: "Proxima Nova", sans-serif;
+  overflow-x: hidden;
+  background-color: #fcf8f8;
+}
+:root {
+  font-size: 16px;
+}
+* {
+  padding: 0;
+  margin: 0;
+}
+img {
+  width: 100%;
+}
+a {
+  text-decoration: none;
+  color: initial;
+  font-weight: $font-weight-normal;
+  font-size: 0.9rem;
+  display: inline-block;
+  &:hover {
+    text-decoration: none;
+    color: initial;
+  }
+  &:focus {
+    outline: none !important;
+  }
+}
+button {
+  border: none;
+  display: inline-block;
+  font-weight: $font-weight-normal;
+  &:focus {
+    outline: none !important;
+    box-shadow: none;
+  }
+}
+h1 {
+  font-size: 2.6rem;
+  line-height: 2.9rem;
+  font-weight: 300;
+}
+h2 {
+  font-size: 2.4rem;
+  line-height: 3.2rem;
+  font-weight: 300;
+}
+h2,
+h3,
+h4,
+h5,
+h6,
+figure {
+  margin-bottom: 0;
+}
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: "Joane";
+  // font-weight: 300;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  border-radius: 5px;
+  background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+form {
+  input,
+  textarea {
+    background-color: #fcf8f8 !important;
+    border-radius: 0 !important;
+  }
+  button {
+    display: block;
+    margin-top: 1.5rem;
+    border: 1px solid #aeb2b6;
+    background-color: transparent;
+    font-size: 0.9rem;
+    font-weight: $font-weight-semi-bold;
+    padding: 0.5rem 2rem;
+    border-radius: 0;
+  }
+}
+
+.txt-vertical {
+  writing-mode: tb-rl;
+}
+.line-vertical-60 {
+  width: 1px;
+  height: 60px;
+}
+
+/************ Font weight ************/
+.font-weight-lighter {
+  font-weight: $font-weight-lighter !important;
+}
+.font-weight-light {
+  font-weight: $font-weight-light !important;
+}
+.font-weight-normal {
+  font-weight: $font-weight-normal !important;
+}
+.font-weight-semi-bold {
+  font-weight: $font-weight-semi-bold !important;
+}
+.font-weight-bold {
+  font-weight: $font-weight-bold !important;
+}
+.font-weight-bolder {
+  font-weight: $font-weight-bolder !important;
+}
+
+/************** Width *******************/
+.w-1 {
+  width: 1rem !important;
+}
+.w-2 {
+  width: 2rem !important;
+}
