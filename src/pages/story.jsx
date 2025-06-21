@@ -62,17 +62,16 @@ const Story = () => {
       </section>
 
       <section className="container story__cards py-5">
-
         {data.cards?.map((card, i) => {
           let isCardEven = i % 2 === 0
           return (
-            <div className="row  my-5 py-5 align-items-center">
+            <div key={card.id} className="row my-5 py-5 align-items-center">
               <div
                 data-sal={isCardEven ? "slide-left" : "slide-right"}
                 className={`col-12 col-lg-6 card-img px-4 ${isCardEven ? "order-lg-2" : ""
                   }`}
               >
-                <img src={card.image.file.url} alt={card.image.title} />
+                <img src={card.image.file.url} alt={card.title} />
               </div>
               <div
                 data-sal={isCardEven ? "slide-right" : "slide-left"}
@@ -80,10 +79,10 @@ const Story = () => {
                   }`}
               >
                 <h4 className="text-primary my-3 mt-lg-0">{card.title}</h4>
-                <div className=" mb-4">
+                <div className="mb-4">
                   {documentToReactComponents(JSON.parse(card.description.raw))}
-
                 </div>
+                
               </div>
             </div>
           )
